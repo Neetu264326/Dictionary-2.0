@@ -1,6 +1,7 @@
 node_modules/
 .vercel/
 .env
+.env.local
 server/.env
 client/.env
 dist/
