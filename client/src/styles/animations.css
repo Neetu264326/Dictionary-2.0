@@ -1,0 +1,297 @@
+/* ==========================================================================
+   Dictionary 2.0 — Motion
+   Every animation respects prefers-reduced-motion (see bottom of file).
+   ========================================================================== */
+
+/* --- Entrances ----------------------------------------------------------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes revealLine {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* --- Floating / depth ---------------------------------------------------- */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -22px, 0) rotate(2.5deg);
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(14px, -18px, 0) scale(1.05);
+  }
+  66% {
+    transform: translate3d(-12px, 10px, 0) scale(0.97);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-r, 150px)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-r, 150px)) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* --- Skeleton shimmer ---------------------------------------------------- */
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* --- Search focus ring --------------------------------------------------- */
+@keyframes ringPulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+}
+
+/* --- Heart --------------------------------------------------------------- */
+@keyframes heartPop {
+  0% {
+    transform: scale(1);
+  }
+  35% {
+    transform: scale(0.82);
+  }
+  70% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  from {
+    transform: scale(0.4);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* --- Audio waveform ------------------------------------------------------ */
+@keyframes wave {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* --- Toast --------------------------------------------------------------- */
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes toastOut {
+  to {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0) scale(0.97);
+  }
+}
+
+/* --- Drawer / menu ------------------------------------------------------- */
+@keyframes drawerIn {
+  from {
+    transform: translate3d(100%, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes drawerOut {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+@keyframes staggerIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* --- Particles ----------------------------------------------------------- */
+@keyframes particle {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(var(--px, 20px), -70px, 0) scale(0.4);
+    opacity: 0;
+  }
+}
+
+@keyframes letterFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-6deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translate3d(6px, -16px, 0) rotate(6deg);
+    opacity: 0.9;
+  }
+}
+
+/* ==========================================================================
+   Applied animation utilities
+   ========================================================================== */
+.anim-fade-up {
+  animation: fadeUp var(--dur-slow) var(--ease) both;
+}
+.anim-fade-in {
+  animation: fadeIn var(--dur) var(--ease) both;
+}
+.anim-scale-in {
+  animation: fadeScale var(--dur) var(--ease) both;
+}
+.stagger > * {
+  animation: staggerIn var(--dur-slow) var(--ease) both;
+}
+.stagger > *:nth-child(1) {
+  animation-delay: 0.04s;
+}
+.stagger > *:nth-child(2) {
+  animation-delay: 0.09s;
+}
+.stagger > *:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.stagger > *:nth-child(4) {
+  animation-delay: 0.19s;
+}
+.stagger > *:nth-child(5) {
+  animation-delay: 0.24s;
+}
+.stagger > *:nth-child(6) {
+  animation-delay: 0.29s;
+}
+.stagger > *:nth-child(7) {
+  animation-delay: 0.34s;
+}
+.stagger > *:nth-child(8) {
+  animation-delay: 0.39s;
+}
+
+/* ==========================================================================
+   Reduced motion — disable decorative animation entirely
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

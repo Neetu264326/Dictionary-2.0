@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>Dictionary 2.0 — Discover the meaning behind every word</title>
+    <meta
+      name="description"
+      content="Dictionary 2.0 is an intelligent vocabulary workspace. Search smarter, understand deeper — explore definitions, pronunciation, examples, origins, synonyms and more."
+    />
+    <meta name="author" content="Dictionary 2.0" />
+    <meta
+      name="keywords"
+      content="dictionary, vocabulary, definitions, pronunciation, synonyms, antonyms, etymology, word of the day"
+    />
+    <meta name="theme-color" content="#F7F8FC" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#080B18" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="canonical" href="https://dictionary-2-0.example.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dictionary 2.0" />
+    <meta property="og:title" content="Dictionary 2.0 — Discover the meaning behind every word" />
+    <meta
+      property="og:description"
+      content="Search smarter. Understand deeper. Build your vocabulary — definitions, pronunciation, examples, origins and word insights in one workspace."
+    />
+    <meta property="og:image" content="/assets/og-cover.svg" />
+    <meta property="og:url" content="https://dictionary-2-0.example.com/" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dictionary 2.0 — Discover the meaning behind every word" />
+    <meta
+      name="twitter:description"
+      content="An intelligent vocabulary workspace: definitions, pronunciation, examples, origins, synonyms and word insights."
+    />
+    <meta name="twitter:image" content="/assets/og-cover.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Apply the stored theme before first paint to avoid a flash of the wrong theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem('dict2:theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var dark = stored === 'dark' || ((stored === 'system' || !stored) && prefersDark);
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="font-family: system-ui; padding: 48px; text-align: center">
+        <h1>Dictionary 2.0</h1>
+        <p>Discover the meaning behind every word. Please enable JavaScript to use this app.</p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
