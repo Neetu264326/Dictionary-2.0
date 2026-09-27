@@ -32,6 +32,14 @@ app.use(
   })
 );
 
+app.get('/', (_req, res) => {
+  res.json({
+    service: 'dictionary-2.0',
+    status: 'ok',
+    health: '/api/health',
+  });
+});
+
 app.use((req, _res, next) => {
   if (process.env.NODE_ENV !== 'production') {
     console.log(`${req.method} ${req.originalUrl}`);
