@@ -22,9 +22,15 @@ JSON with `"status":"ok"`.
 ## 2. Deploy the frontend
 
 Create another Vercel project from the same repository and set its **Root
-Directory** to `client`. Vercel detects Vite automatically. Add the environment
+Directory** to `client`. Keep the framework preset as **Vite**. The client
+`vercel.json` installs the client dependencies (including Vite) and builds the
+`dist` output. Do not set this project's Root Directory to the repository root
+or use the client build command in the API project. Add the environment
 variable `VITE_API_URL` with the API project's origin, for example
 `https://dictionary-api.vercel.app` (no trailing slash), then deploy.
+
+If the frontend project is intentionally rooted at the repository root, the
+root `vercel.json` installs the client dependencies and builds `client/dist`.
 
 The frontend project includes `vercel.json` so client-side routes resolve to
 the React app when opened directly or refreshed.
