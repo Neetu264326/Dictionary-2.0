@@ -2,11 +2,11 @@ import { lookupWord, validateWord } from '../services/dictionaryService.js';
 import { ApiError } from '../middleware/errorHandler.js';
 
 /**
- * GET /api/dictionary/:word
+ * GET /api/dictionary/:word  or  GET /api/dictionary?word=hello
  */
 export async function getWord(req, res, next) {
   try {
-    const raw = req.params.word ?? '';
+    const raw = req.params.word ?? req.query.word ?? '';
     const word = validateWord(raw);
 
     if (!word) {

@@ -56,6 +56,17 @@ app.get('/api/health', (_req, res) => {
   });
 });
 
+app.get(['/api', '/api/'], (_req, res) => {
+  res.json({
+    service: 'dictionary-2.0',
+    endpoints: {
+      health: '/api/health',
+      word: '/api/dictionary/:word',
+      wordAlt: '/api/dictionary?word=hello',
+    },
+  });
+});
+
 app.use('/api/dictionary', dictionaryRoutes);
 app.use('/api', notFoundHandler('API route not found.'));
 
