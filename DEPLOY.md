@@ -29,11 +29,8 @@ or use the client build command in the API project. Add the environment
 variable `VITE_API_URL` with the API project's origin, for example
 `https://dictionary-api.vercel.app` (no trailing slash), then deploy.
 
-If the frontend project is intentionally rooted at the repository root, the
-root `vercel.json` installs the client dependencies and builds `client/dist`.
-
-The frontend project includes `vercel.json` so client-side routes resolve to
-the React app when opened directly or refreshed.
+The frontend project includes `client/vercel.json` so client-side routes
+resolve to the React app when opened directly or refreshed.
 
 ## 3. Update the API CORS origin
 
